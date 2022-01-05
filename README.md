@@ -1,40 +1,27 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  eval = FALSE,
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
 
 # easyDataClean
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of easyDataClean is to ...
-
+The goal of easyDataClean is to …
 
 # Misc
 
 ## df_to_subsetList
 
-这个函数主要是按照行来切分数据框, 比如 100 行的 df, 按照每五行来切分, 就可以切成 20 个小的数据框, 存成 list, 方便调用 future_map 函数来进行并行计算
+这个函数主要是按照行来切分数据框, 比如 100 行的 df, 按照每五行来切分,
+就可以切成 20 个小的数据框, 存成 list, 方便调用 future_map
+函数来进行并行计算
 
 思路: group_by
 
-input: 你想要切分的子数据框数目
-output: 含有一系列结构相同的子数据框的 list
+input: 你想要切分的子数据框数目 output: 含有一系列结构相同的子数据框的
+list
 
-
-```{r}
+``` r
 library(tidyverse)
 
 df_to_subsetList <- function(df, group_num = 3) {
@@ -62,9 +49,7 @@ df_to_subsetList <- function(df, group_num = 3) {
 
 iris %>% 
   df_to_subsetList(group_num = 4) 
-
 ```
-
 
 ## transfer
 
@@ -72,11 +57,11 @@ iris %>%
 
 先看一下 shell 版本的
 
-```{bash}
+``` bash
 # curl --upload-file demo.rds https://transfer.sh/`basename "demo.rds"` 
 ```
 
-```{r eval=FALSE}
+``` r
 df = iris
 
 
@@ -104,21 +89,9 @@ df %>%
   transfer.sh(type = "feather")
 
 # df_new <- readr::read_rds("https://transfer.sh/saV5ft/file70602fa86c81.rds")
-
-
-
 ```
-
-
-
-
-
-
-
-
-
 
 ## ref
 
-[easystats/datawizard: Magic potions to clean and transform your data 🧙](https://github.com/easystats/datawizard)
-
+[easystats/datawizard: Magic potions to clean and transform your data
+🧙](https://github.com/easystats/datawizard)
