@@ -16,3 +16,5 @@ LazyData: true
 RoxygenNote: 7.1.1
 Suggests: devtools,
     git2r
+URL: https://github.com/jixing475/easyDataClean
+BugReports: https://github.com/jixing475/easyDataClean/issues
